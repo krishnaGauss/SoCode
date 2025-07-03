@@ -45,7 +45,7 @@ func (r *RedisQueue) EnqueueLog(log models.LogEntry) error{
 	return r.client.LPush(r.ctx, "log_queue", data).Err()
 }
 
-func (r *RedisQueue) DequeueLogs (count int64) ([]models.LogEntry, error){
+func (r *RedisQueue) DequeueLogs(count int64) ([]models.LogEntry, error){
 	results, err := r.client.RPopCount(r.ctx, "log_queue", int(count)).Result()
     if err != nil {
         return nil, err
