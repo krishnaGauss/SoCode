@@ -1,0 +1,48 @@
+syntax= "proto3";
+
+package logs;
+
+option go_package = "github.com/krishnaGauss/SoCode/proto";
+
+import "google/protobuf/timestamp.proto";
+
+service LogService {
+    rpc SendLog(LogRequest) returns (LogResponse);
+    rpc SendLogStream(stream LogRequest) returns (LogResponse);
+    rpc QueryLogs(QueryRequest) returns (QueryResponse);
+}
+
+message LogRequest {
+    string id = 1;
+    google.protobuf.Timestamp timestamp = 2;
+    string level = 3;
+    string message = 4;
+    string source = 5;
+    string service = 6;
+    string host = 7;
+    map<string, string> tags = 8;
+    string metadata = 9;
+}
+
+message LogResponse {
+    bool success=1;
+    string message=2;
+}
+
+message QueryRequest {
+    google.protobuf.Timestamp start_time = 1;
+    google.protobuf.Timestamp end_time = 2;
+    repeated string levels = 3;
+    repeated string sources = 4;
+    repeated string services = 5;
+    repeated string hosts = 6;
+    string search = 7;
+    map<string, string> tags = 8;
+    int32 limit = 9;
+    int32 offset = 10;
+}
+
+message QueryResponse {
+    repeated LogRequest logs = 1;
+    int32 total = 2;
+}
