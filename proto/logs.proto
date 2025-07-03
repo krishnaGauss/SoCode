@@ -2,7 +2,8 @@ syntax= "proto3";
 
 package logs;
 
-option go_package = "github.com/krishnaGauss/SoCode/proto";
+// option go_package = "github.com/krishnaGauss/SoCode/proto";
+option go_package = "SoCode/proto";
 
 import "google/protobuf/timestamp.proto";
 

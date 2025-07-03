@@ -396,7 +396,7 @@ const file_logs_proto_rawDesc = "" +
 	"LogService\x12.\n" +
 	"\aSendLog\x12\x10.logs.LogRequest\x1a\x11.logs.LogResponse\x126\n" +
 	"\rSendLogStream\x12\x10.logs.LogRequest\x1a\x11.logs.LogResponse(\x01\x124\n" +
-	"\tQueryLogs\x12\x12.logs.QueryRequest\x1a\x13.logs.QueryResponseB&Z$github.com/krishnaGauss/SoCode/protob\x06proto3"
+	"\tQueryLogs\x12\x12.logs.QueryRequest\x1a\x13.logs.QueryResponseB\x0eZ\fSoCode/protob\x06proto3"
 
 var (
 	file_logs_proto_rawDescOnce sync.Once
