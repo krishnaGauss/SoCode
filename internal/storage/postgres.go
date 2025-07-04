@@ -19,7 +19,10 @@ type PostgresStorage struct {
 }
 
 func NewPostgresStorage(cfg *config.DatabaseConfig) (*PostgresStorage, error) {
-	dsn := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=%s", cfg.Host, cfg.Port, cfg.Password, cfg.Database, cfg.SSLMode)
+	// fmt.Println("host=%s port=%d user=%s password=%s dbname=%s sslmode=%s", 
+	// 	cfg.Host, cfg.Port, cfg.Username, cfg.Password, cfg.Database, cfg.SSLMode)
+	dsn := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=%s", 
+		cfg.Host, cfg.Port, cfg.Username, cfg.Password, cfg.Database, cfg.SSLMode)
 
 	db, err := sqlx.Connect("postgres", dsn)
 	if err != nil {
@@ -41,7 +44,6 @@ func NewPostgresStorage(cfg *config.DatabaseConfig) (*PostgresStorage, error) {
 	}
 
 	return storage, nil
-
 }
 
 func (s *PostgresStorage) createTables() error {
