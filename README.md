@@ -276,19 +276,6 @@ SoCode/
 └── README.md             # This file
 ```
 
-### Running Tests
-
-```bash
-# Run all tests
-go test ./...
-
-# Run tests with coverage
-go test -cover ./...
-
-# Run specific test
-go test ./internal/storage -v
-```
-
 ### Code Style
 
 This project follows Go best practices:
@@ -304,15 +291,6 @@ go fmt ./...
 golangci-lint run
 ```
 
-## Monitoring
-
-### Metrics
-
-SoCode exposes Prometheus metrics on `/metrics` endpoint:
-
-- `socode_logs_ingested_total` - Total number of logs ingested
-- `socode_requests_duration_seconds` - Request duration histogram
-- `socode_database_connections` - Active database connections
 
 ### Logging
 
